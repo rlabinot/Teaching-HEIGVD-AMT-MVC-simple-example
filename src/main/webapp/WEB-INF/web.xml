@@ -12,4 +12,13 @@
     <servlet-name>QuoteServlet</servlet-name>
     <url-pattern>/quotes</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>FormServlet</servlet-name>
+    <servlet-class>ch.heigvd.amt.mvcsimple.presentation.FormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormServlet</servlet-name>
+    <url-pattern>/form</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -6,6 +6,7 @@ import ch.heigvd.amt.mvcsimple.model.Form;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class FormServlet extends javax.servlet.http.HttpServlet {
 
@@ -24,7 +25,9 @@ public class FormServlet extends javax.servlet.http.HttpServlet {
         if (formRegister.checkForm()) {
             request.getRequestDispatcher("/WEB-INF/pages/form.jsp").forward(request, response);
         } else {
-            System.out.println("Erreur dans la validation du formulaire!");
+            for (HashMap.Entry<String, String> tmp : formRegister.getErrors().entrySet()) {
+                request.setAttribute(tmp.getKey(), tmp.getValue());
+            }
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
